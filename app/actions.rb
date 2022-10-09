@@ -28,7 +28,7 @@ post '/signup' do  #If a user navigates to the path "/signup"
   
   if @user.save
     
-    "User #{@user.username} saved!"
+    "User #{@user.username} created!"
 
   else
     
