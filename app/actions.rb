@@ -1,9 +1,12 @@
+# Controller - Handles client HTTP requests and sends HTTP responses 
 
+# Handle the GET request for '/' (Display all the Finstagram posts by descending order) - READ
 get '/' do
   @finstagram_posts = FinstagramPost.order(created_at: :desc)
   erb(:index)
 end
 
+# Handle the GET request for '/signup' (Display a form signup for the user the fill out the info) - READ
 get '/signup' do  #If a user navigates to the path "/signup"
 
   @user = User.new  #setup empty @user object
@@ -11,6 +14,7 @@ get '/signup' do  #If a user navigates to the path "/signup"
 
 end
 
+# Handle the POST request for '/signup' (Create a User) - CREATE 
 post '/signup' do  #If a user navigates to the path "/signup"
 
   #grab user input values from params
@@ -24,7 +28,7 @@ post '/signup' do  #If a user navigates to the path "/signup"
   
   if @user.save
     
-    "User #{username} saved!"
+    "User #{@user.username} saved!"
 
   else
     
