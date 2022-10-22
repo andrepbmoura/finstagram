@@ -27,3 +27,34 @@ a.photo {
 a.photo:hover {
     padding: 10px;
 }
+
+
+/* 
+Desktop first approach (media queries for styling smaller screens)
+max-width is no larger than pixel value
+    - goes in descending
+
+Mobile first approach (media queries for styling larger screens)
+min-widths is no smaller than pixel value
+    - goes in ascending
+*/
+
+
+
+
+@media screen and (max-width: 768px) {
+
+    main {
+        width: 70%;
+    }
+
+
+}
+
+
+@media screen and (max-width: 500px) {
+
+    main {
+        width: 100%;
+    }
+}
