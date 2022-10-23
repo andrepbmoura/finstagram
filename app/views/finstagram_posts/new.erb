@@ -1,10 +1,10 @@
 <ul class="errors">
-    <h2>New Post</h2>
-    
     <% @finstagram_post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
     <% end %>
 </ul>
+
+<img id="preview" style="display: none; max-width: 200px;">
 
 <form action="/finstagram_posts" method="POST">
     <div class="form-group">
@@ -16,3 +16,24 @@
     </div>
 </form >
 
+<script
+src="https://code.jquery.com/jquery-3.6.1.min.js"
+integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+crossorigin="anonymous"></script>
+
+
+<script>
+    $(document).ready(function() {
+      $("#photo_url").on("blur", function(event) {  
+        var photoUrl = event.target.value;
+        var preview = $("#preview");
+
+        if(photoUrl) {
+            preview.attr("src", photoUrl);
+            preview.show(); 
+        } else {
+            preview.hide();
+        }
+    });
+});
+</script>
